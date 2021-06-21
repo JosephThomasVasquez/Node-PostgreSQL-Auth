@@ -41,9 +41,6 @@ const Register = () => {
             <FormControl className="form-control">
               <InputLabel className="input-labels">Name</InputLabel>
               <Input id="input-name" aria-describedby="Enter your name" />
-              <FormHelperText id="Enter your name">
-                Please tell us your name.
-              </FormHelperText>
             </FormControl>
 
             <FormControl className="form-control">
@@ -52,9 +49,6 @@ const Register = () => {
                 id="input-email"
                 aria-describedby="Enter your email address"
               />
-              <FormHelperText id="Enter your email address">
-                Where we can reach you!
-              </FormHelperText>
             </FormControl>
 
             <FormControl className="form-control">
@@ -63,10 +57,6 @@ const Register = () => {
                 id="input-password"
                 aria-describedby="Please enter a strong password"
               />
-              <FormHelperText id="Please enter a strong password">
-                A strong password contains special characters, uppercase,
-                lowercase, and numbers.
-              </FormHelperText>
             </FormControl>
 
             <FormControl className="form-control">
@@ -75,12 +65,9 @@ const Register = () => {
                 id="input-password"
                 aria-describedby="Please confirm password"
               />
-              <FormHelperText id="Please confirm password">
-                Enter the password again to confirm it.
-              </FormHelperText>
             </FormControl>
 
-            <div className="form-control">
+            <div className="form-control button-register">
               <Button variant="contained" color="primary" type="submmit">
                 Register
               </Button>
