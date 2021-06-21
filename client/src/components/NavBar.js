@@ -67,7 +67,7 @@ const NavBar = () => {
           </Typography>
 
           <Button color="inherit" onClick={handleOpen}>
-            <Typography variant="p" className={classes.root}>
+            <Typography variant="body1" className={classes.root}>
               <Link href="/users/login" color="inherit" className="nav-link">
                 Login
               </Link>
@@ -75,7 +75,7 @@ const NavBar = () => {
           </Button>
 
           <Button color="inherit" onClick={handleOpen}>
-            <Typography variant="p" className={classes.root}>
+            <Typography variant="body1" className={classes.root}>
               <Link href="/users/register" color="inherit" className="nav-link">
                 Register
               </Link>
