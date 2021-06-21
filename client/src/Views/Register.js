@@ -16,12 +16,12 @@ const theme = createMuiTheme({
     primary: {
       type: "light",
       main: lightBlue[400],
-      contrastText: 'white'
+      contrastText: "white",
     },
     secondary: {
       // This is green.A700 as hex.
       main: "#11cb5f",
-      contrastText: 'white'
+      contrastText: "white",
     },
   },
 });
@@ -29,7 +29,7 @@ const theme = createMuiTheme({
 const Register = () => {
   return (
     <ThemeProvider theme={theme}>
-      <Container variant="dark">
+      <Container variant="dark" maxWidth="sm">
         <h1>Register</h1>
 
         <form action="/users/register" method="POST" className="form-bg">
@@ -74,9 +74,13 @@ const Register = () => {
               Enter the password again to confirm it.
             </FormHelperText>
           </FormControl>
-          <Button variant="contained" color="primary">
-            Register
-          </Button>
+
+          <div className="form-control">
+            <Button variant="contained" color="primary" type="submmit">
+              Register
+            </Button>
+          </div>
+
         </form>
       </Container>
     </ThemeProvider>

@@ -23,6 +23,7 @@ code {
 
 .form-control {
   width: 100% !important;
+  margin: 5px !important;
 }
 
 .input-labels {
