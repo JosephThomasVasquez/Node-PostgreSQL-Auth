@@ -88,11 +88,11 @@ const Register = () => {
             <div className="dark-text text-center">
               Already have an account?
               <Button color="primary" type="submmit">
-                <Typography variant="div" className="">
+                <Typography variant="body1" className="">
                   <Link
                     href="/users/login"
                     color="inherit"
-                    className="nav-link-primary"
+                    className="nav-link"
                   >
                     Login here
                   </Link>

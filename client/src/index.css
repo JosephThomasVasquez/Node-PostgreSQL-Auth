@@ -14,8 +14,10 @@ code {
     monospace;
 }
 
-.nav-link, .nav-link-primary {
+.nav-link,
+.nav-link-primary {
   text-decoration: none !important;
+  text-transform: none !important;
 }
 
 .nav-link-primary {
