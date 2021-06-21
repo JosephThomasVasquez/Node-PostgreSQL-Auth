@@ -12,3 +12,9 @@ const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log("Server running on port: ", PORT);
 });
+
+
+app.get('/', (req, res) => {
+
+    res.json({message: "Connected to /"})
+})
