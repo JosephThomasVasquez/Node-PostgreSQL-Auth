@@ -1,11 +1,15 @@
 import React from "react";
+import NavBar from "../components/NavBar";
 import Container from "@material-ui/core/Container";
 
 const Dashboard = () => {
   return (
-    <Container>
-      <h1>Dashboard</h1>
-    </Container>
+    <>
+      <NavBar />
+      <Container>
+        <h1>Dashboard</h1>
+      </Container>
+    </>
   );
 };
 

@@ -1,11 +1,15 @@
 import React from "react";
+import NavBar from "../components/NavBar";
 import Container from "@material-ui/core/Container";
 
 const Login = () => {
   return (
-    <Container>
-      <h1>Login</h1>
-    </Container>
+    <>
+      <NavBar />
+      <Container>
+        <h1>Login</h1>
+      </Container>
+    </>
   );
 };
 

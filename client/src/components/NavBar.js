@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import { Link } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -58,15 +59,27 @@ const NavBar = () => {
           >
             <MenuIcon />
           </IconButton>
+
           <Typography variant="h6" className={classes.title}>
             User Authentication
           </Typography>
+
           <Button color="inherit" onClick={handleOpen}>
-            Login
+            <Typography variant="p" className={classes.root}>
+              <Link href="/users/login" color="inherit" className="nav-link">
+                Login
+              </Link>
+            </Typography>
           </Button>
+
           <Button color="inherit" onClick={handleOpen}>
-            Register
+            <Typography variant="p" className={classes.root}>
+              <Link href="/users/register" color="inherit" className="nav-link">
+                Register
+              </Link>
+            </Typography>
           </Button>
+
         </Toolbar>
         {/* <ModalDialog open={open} handleClose={handleClose} /> */}
       </AppBar>
