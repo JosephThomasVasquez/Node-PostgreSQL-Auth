@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "../components/NavBar";
+import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
 
 const Home = () => {
@@ -27,11 +28,13 @@ const Home = () => {
   return (
     <>
       <NavBar />
-      <h1>Home {data && data.data}</h1>
-      <Button variant="contained" color="primary">
-        Login
-      </Button>
-      {JSON.stringify(data)}
+      <Container>
+        <h1>Home {data && data.data}</h1>
+        <Button variant="contained" color="primary">
+          Login
+        </Button>
+        {JSON.stringify(data)}
+      </Container>
     </>
   );
 };
