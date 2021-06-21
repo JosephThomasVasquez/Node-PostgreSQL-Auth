@@ -11,6 +11,8 @@ import {
 } from "@material-ui/core";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import { lightBlue } from "@material-ui/core/colors";
+import Typography from "@material-ui/core/Typography";
+import { Link } from "@material-ui/core";
 
 const theme = createMuiTheme({
   palette: {
@@ -81,6 +83,20 @@ const Register = () => {
             <div className="form-control">
               <Button variant="contained" color="primary" type="submmit">
                 Register
+              </Button>
+            </div>
+            <div className="dark-text text-center">
+              Already have an account?
+              <Button color="primary" type="submmit">
+                <Typography variant="div" className="">
+                  <Link
+                    href="/users/login"
+                    color="inherit"
+                    className="nav-link-primary"
+                  >
+                    Login here
+                  </Link>
+                </Typography>
               </Button>
             </div>
           </form>

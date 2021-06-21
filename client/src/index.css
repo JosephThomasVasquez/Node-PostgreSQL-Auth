@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -10,19 +10,23 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-.nav-link {
+.nav-link, .nav-link-primary {
   text-decoration: none !important;
+}
+
+.nav-link-primary {
+  color: #0277bd !important;
 }
 
 .form-bg {
   background: white !important;
   padding: 2em;
   border-radius: 10px;
-  box-shadow: 0 5px 40px rgba(0, 0, 0, 0.75)
+  box-shadow: 0 5px 40px rgba(0, 0, 0, 0.75);
 }
 
 .form-control {
@@ -32,4 +36,8 @@ code {
 
 .input-labels {
   color: rgba(0, 0, 0, 1) !important;
+}
+
+.dark-text {
+  color: black;
 }
