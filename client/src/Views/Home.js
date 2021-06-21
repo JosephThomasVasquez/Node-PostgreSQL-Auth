@@ -27,7 +27,7 @@ const Home = () => {
   return (
     <>
       <NavBar />
-      <h1>Home</h1>
+      <h1>Home {data && data.data}</h1>
       <Button variant="contained" color="primary">
         Login
       </Button>

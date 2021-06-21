@@ -20,5 +20,5 @@ app.listen(PORT, () => {
 });
 
 app.get("/", (req, res) => {
-  res.json({ message: "Connected to /" });
+  res.json({ message: "Connected to /", data: "User" });
 });
