@@ -7,6 +7,23 @@ import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import MenuIcon from "@material-ui/icons/Menu";
 // import ModalDialog from "./ModalDialog";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import { lightBlue } from "@material-ui/core/colors";
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      type: "light",
+      main: lightBlue[800],
+      contrastText: "white",
+    },
+    secondary: {
+      // This is green.A700 as hex.
+      main: "#11cb5f",
+      contrastText: "white",
+    },
+  },
+});
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -30,28 +47,30 @@ const NavBar = () => {
   };
 
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <IconButton
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-          className={classes.menuButton}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="h6" className={classes.title}>
-          User Authentication
-        </Typography>
-        <Button color="inherit" onClick={handleOpen}>
-          Login
-        </Button>
-        <Button color="inherit" onClick={handleOpen}>
-          Register
-        </Button>
-      </Toolbar>
-      {/* <ModalDialog open={open} handleClose={handleClose} /> */}
-    </AppBar>
+    <ThemeProvider theme={theme}>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            className={classes.menuButton}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" className={classes.title}>
+            User Authentication
+          </Typography>
+          <Button color="inherit" onClick={handleOpen}>
+            Login
+          </Button>
+          <Button color="inherit" onClick={handleOpen}>
+            Register
+          </Button>
+        </Toolbar>
+        {/* <ModalDialog open={open} handleClose={handleClose} /> */}
+      </AppBar>
+    </ThemeProvider>
   );
 };
 
