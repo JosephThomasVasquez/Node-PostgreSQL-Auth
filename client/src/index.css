@@ -5,11 +5,22 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #232323;
+  background: #3f3f3f;
   color: white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.form-bg {
+  background: white !important;
+  padding: 2em;
+  border-radius: 10px;
+  box-shadow: 0 5px 40px rgba(0, 0, 0, 0.75)
+}
+
+.input-labels {
+  color: rgba(0, 0, 0, 1) !important;
 }
