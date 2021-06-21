@@ -61,7 +61,9 @@ const NavBar = () => {
           </IconButton>
 
           <Typography variant="h6" className={classes.title}>
-            User Authentication
+            <Link href="/" color="inherit" className="nav-link">
+              User Auth
+            </Link>
           </Typography>
 
           <Button color="inherit" onClick={handleOpen}>
@@ -79,7 +81,6 @@ const NavBar = () => {
               </Link>
             </Typography>
           </Button>
-
         </Toolbar>
         {/* <ModalDialog open={open} handleClose={handleClose} /> */}
       </AppBar>
