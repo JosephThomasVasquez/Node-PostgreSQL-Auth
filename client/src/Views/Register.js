@@ -31,10 +31,26 @@ const Register = () => {
 
         <form action="/users/register" method="POST" className="form-bg">
           <FormControl>
+            <InputLabel className="input-labels">Name</InputLabel>
+            <Input id="input-name" aria-describedby="Enter your name" />
+            <FormHelperText id="Enter your name">
+              Please tell us your name.
+            </FormHelperText>
+          </FormControl>
+
+          <FormControl>
             <InputLabel className="input-labels">Email</InputLabel>
-            <Input id="my-input" aria-describedby="my-helper-text" />
-            <FormHelperText id="my-helper-text">
-              We'll never share your email.
+            <Input id="input-email" aria-describedby="Enter your email address" />
+            <FormHelperText id="Enter your email address">
+              Where we can reach you!
+            </FormHelperText>
+          </FormControl>
+
+          <FormControl>
+            <InputLabel className="input-labels">Password</InputLabel>
+            <Input id="input-password" aria-describedby="Please enter a strong password" />
+            <FormHelperText id="Please enter a strong password">
+            A strong password contains special characters, uppercase, lowercase, and numbers.
             </FormHelperText>
           </FormControl>
         </form>
