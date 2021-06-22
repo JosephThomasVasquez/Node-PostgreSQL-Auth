@@ -1,5 +1,6 @@
 import express from "express";
 import bcrypt from "bcrypt";
+import pool from "../config/dbConfig.js";
 
 express().use(express.json()); // Body parser
 
@@ -39,7 +40,19 @@ const registerUser = async (req, res) => {
     // Encrypt password
     const saltRounds = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, saltRounds);
-    console.log("hashedpassword", hashedPassword);
+
+    // Check if user exists via email
+    pool.query(
+      `SELECT * FROM users WHERE email = $1`,
+      [email],
+      (error, results) => {
+        if (error) {
+          console.log(error);
+          throw error;
+        }
+        console.log(results.rows);
+      }
+    );
   }
 };
 
