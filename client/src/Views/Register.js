@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import NavBar from "../components/NavBar";
+import ErrorMessage from "../components/ErrorMessage";
 import Container from "@material-ui/core/Container";
 import { FormControl, Input, InputLabel, Button } from "@material-ui/core";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
@@ -71,7 +72,7 @@ const Register = () => {
           return response.json();
         })
         .then((data) => {
-          console.log("Data", data)
+          console.log("Data", data);
           setRegisterData(data);
         })
         .catch((error) => {
@@ -93,6 +94,8 @@ const Register = () => {
             className="form-bg"
             onSubmit={handleRegister}
           >
+            {registerData.errors &&
+              registerData.errors.map((err) => <ErrorMessage key={err} message={err.message} />)}
             <FormControl className="form-control">
               <InputLabel className="input-labels">Name</InputLabel>
               <Input
