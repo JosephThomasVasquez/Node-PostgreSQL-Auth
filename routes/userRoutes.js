@@ -13,16 +13,11 @@ const registerUser = (req, res) => {
   });
 
   const errors = [];
-  const errorz = [
-    { message: "Please fill out all input fields!" },
-    { message: "Password must be at least 8 characters long." },
-    { message: "Passwords do not match!" },
-  ];
 
   // INPUT VALIDATION ----------------------------------------------------------
 
   // ERROR: Fill out all fields
-  if (!name || !email || !password || confirmPassword) {
+  if (!name || !email || !password || !confirmPassword) {
     errors.push({ message: "Please fill out all input fields!" });
   }
 

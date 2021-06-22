@@ -46,39 +46,32 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
 
-    if (
-      registerData.name !== "" &&
-      registerData.email !== "" &&
-      registerData.password !== "" &&
-      registerData.confirmPassword !== ""
-    ) {
-      const setupData = {
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-        method: "POST",
-        body: JSON.stringify({
-          name: registerData.name,
-          email: registerData.email,
-          password: registerData.password,
-          confirmPassword: registerData.confirmPassword,
-        }),
-      };
+    const setupData = {
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      method: "POST",
+      body: JSON.stringify({
+        name: registerData.name,
+        email: registerData.email,
+        password: registerData.password,
+        confirmPassword: registerData.confirmPassword,
+      }),
+    };
 
-      fetch("http://localhost:5000/users/register", setupData)
-        .then((response) => {
-          console.log(response);
-          return response.json();
-        })
-        .then((data) => {
-          console.log("Data", data);
-          setRegisterData(data);
-        })
-        .catch((error) => {
-          console.log("Fetch Error", error);
-        });
-    }
+    fetch("http://localhost:5000/users/register", setupData)
+      .then((response) => {
+        console.log(response);
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Data", data);
+        setRegisterData(data);
+      })
+      .catch((error) => {
+        console.log("Fetch Error", error);
+      });
   };
 
   return (
@@ -95,7 +88,9 @@ const Register = () => {
             onSubmit={handleRegister}
           >
             {registerData.errors &&
-              registerData.errors.map((err) => <ErrorMessage key={err} message={err.message} />)}
+              registerData.errors.map((err) => (
+                <ErrorMessage key={err.message} message={err.message} />
+              ))}
             <FormControl className="form-control">
               <InputLabel className="input-labels">Name</InputLabel>
               <Input
