@@ -1,8 +1,9 @@
 import express from "express";
+import bcrypt from "bcrypt";
 
 express().use(express.json()); // Body parser
 
-const registerUser = (req, res) => {
+const registerUser = async (req, res) => {
   const { name, email, password, confirmPassword } = req.body;
 
   console.log({
@@ -34,6 +35,11 @@ const registerUser = (req, res) => {
   if (errors.length > 0) {
     // console.log(errors);
     res.json({ errors });
+  } else if (errors.length <= 0) {
+    // Encrypt password
+    const saltRounds = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    console.log("hashedpassword", hashedPassword);
   }
 };
 
