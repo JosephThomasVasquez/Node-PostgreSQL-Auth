@@ -1,18 +1,9 @@
 import React from "react";
 import NavBar from "../components/NavBar";
 import Container from "@material-ui/core/Container";
-import {
-  FormControl,
-  FormLabel,
-  FormHelperText,
-  Input,
-  InputLabel,
-  Button,
-} from "@material-ui/core";
+import { FormControl, Input, InputLabel, Button } from "@material-ui/core";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import { lightBlue } from "@material-ui/core/colors";
-import Typography from "@material-ui/core/Typography";
-import { Link } from "@material-ui/core";
 
 const theme = createMuiTheme({
   palette: {

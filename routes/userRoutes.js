@@ -37,8 +37,8 @@ const registerUser = (req, res) => {
   }
 
   if (errors.length > 0) {
-    console.log(errors);
-    res.json(errors);
+    // console.log(errors);
+    res.json({ errors });
   }
 };
 
