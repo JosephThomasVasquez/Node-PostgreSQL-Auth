@@ -1,15 +1,17 @@
 import express from "express";
 
-const router = express.router();
+express().use(express.json()); // Body parser
 
-const registerUser = router.route("/register").post((req, res) => {
-  let { name, email, password, confirmPassword } = req.body;
+const registerUser = (req, res) => {
+  const { name, email, password, confirmPassword } = req.body;
+
   console.log({
     name,
     email,
     password,
     confirmPassword,
   });
-});
+  
+};
 
 export { registerUser };

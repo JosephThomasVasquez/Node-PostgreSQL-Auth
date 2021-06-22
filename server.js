@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import pool from "./config/dbConfig.js";
+import { registerUser } from "./routes/userRoutes.js";
 
 dotenv.config();
 
@@ -16,6 +17,9 @@ app.use(
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); // Body parser
+
+// ROUTES
+app.post("/users/register", registerUser);
 
 const PORT = process.env.PORT;
 
