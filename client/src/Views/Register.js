@@ -38,8 +38,10 @@ const Register = () => {
   });
 
   const handleRegisterInput = (e) => {
+    // Destructure input by name and value
     const { name, value } = e.target;
 
+    // Set state of registerData from input names and values
     setRegisterData({ ...registerData, [name]: value });
     console.log("registerData", registerData);
   };
