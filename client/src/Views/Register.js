@@ -30,6 +30,7 @@ const theme = createMuiTheme({
 });
 
 const Register = () => {
+  // Set State for register data
   const [registerData, setRegisterData] = useState({
     name: "",
     email: "",
@@ -46,25 +47,42 @@ const Register = () => {
     console.log("registerData", registerData);
   };
 
+  // Submit register data
   const handleRegister = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:5000/users/register", {
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-    })
-      .then((response) => {
-        console.log(response);
-        return response.json();
-      })
-      .then((data) => {
-        setRegisterData(data);
-      })
-      .catch((error) => {
-        console.log("Fetch Error", error);
-      });
+    if (
+      registerData.name !== "" &&
+      registerData.email !== "" &&
+      registerData.password !== "" &&
+      registerData.confirmPassword !== ""
+    ) {
+      const setupData = {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+        method: "POST",
+        body: JSON.stringify({
+          name: registerData.name,
+          email: registerData.email,
+          password: registerData.password,
+          confirmPassword: registerData.confirmPassword,
+        }),
+      };
+
+      fetch("http://localhost:5000/users/register", setupData)
+        .then((response) => {
+          console.log(response);
+          return response.json();
+        })
+        .then((data) => {
+          setRegisterData(data);
+        })
+        .catch((error) => {
+          console.log("Fetch Error", error);
+        });
+    }
   };
 
   return (
