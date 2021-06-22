@@ -6,11 +6,15 @@ import pool from "./config/dbConfig.js";
 dotenv.config();
 
 const app = express();
+
+// Allow CORS origin
 app.use(
   cors({
     origin: "http://localhost:3000",
   })
 );
+
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); // Body parser
 
 const PORT = process.env.PORT;
