@@ -1,7 +1,9 @@
 import dotenv from "dotenv";
-import { Pool } from "pg";
+import pg from "pg";
 
 dotenv.config();
+
+const Pool = pg.Pool;
 
 // Check if the app is in production mode
 const isProduction = process.env.NODE_ENV === "production";
