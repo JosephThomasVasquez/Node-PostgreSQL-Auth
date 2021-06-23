@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import session, { Session } from "express-session";
 import pool from "./config/dbConfig.js";
 import { registerUser } from "./routes/userRoutes.js";
 
@@ -12,6 +13,14 @@ const app = express();
 app.use(
   cors({
     origin: "http://localhost:3000",
+  })
+);
+
+app.use(
+  session({
+    secret: "secret",
+    resave: false,
+    saveUninitialized: false,
   })
 );
 

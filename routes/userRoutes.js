@@ -47,7 +47,7 @@ const registerUser = async (req, res) => {
       [email],
       (error, results) => {
         if (error) {
-          console.log(error);
+            console.log("postgres error: ", error);
           throw error;
         }
         console.log("postgres results: ", results.rows);
@@ -55,6 +55,19 @@ const registerUser = async (req, res) => {
         if (results.rows.length > 0) {
           errors.push({ message: "Email already has been registered." });
           res.json({ errors });
+        } else {
+          pool.query(
+            `INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING id, password`,
+            [name, email, hashedPassword],
+            (error, results) => {
+              if (error) {
+                console.log("postgres error: ", error);
+                throw error;
+              }
+              console.log("postgres results: ", results.rows);
+            //   res.json();
+            }
+          );
         }
       }
     );
