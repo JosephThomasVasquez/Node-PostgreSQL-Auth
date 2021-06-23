@@ -65,8 +65,9 @@ const registerUser = async (req, res) => {
                 throw error;
               }
               console.log("postgres results: ", results.rows);
-              res.json({ success: "Registration successfully created." });
-              res.redirect("/users/login");
+              res
+                .json({ success: "Registration successfully created." })
+                .redirect("/users/login");
             }
           );
         }
