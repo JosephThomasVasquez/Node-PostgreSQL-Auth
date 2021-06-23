@@ -1,4 +1,4 @@
-import passport, { Strategy } from "passport-local";
+import { Strategy } from "passport-local";
 import pool from "./dbConfig.js";
 import bcrypt from "bcrypt";
 import passport from "passport";
@@ -70,3 +70,5 @@ function initialize() {
     });
   });
 }
+
+export { initialize };
