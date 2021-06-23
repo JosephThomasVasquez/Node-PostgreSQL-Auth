@@ -47,7 +47,7 @@ const registerUser = async (req, res) => {
       [email],
       (error, results) => {
         if (error) {
-          console.log(results);
+          console.log(error);
           throw error;
         }
         console.log(results.rows);
