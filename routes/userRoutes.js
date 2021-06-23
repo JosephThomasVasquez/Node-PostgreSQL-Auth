@@ -4,6 +4,9 @@ import pool from "../config/dbConfig.js";
 
 express().use(express.json()); // Body parser
 
+// POST
+// REGISTER USER
+// SET COOKIE SESSION
 const registerUser = async (req, res) => {
   const { name, email, password, confirmPassword } = req.body;
 
@@ -76,4 +79,6 @@ const registerUser = async (req, res) => {
   }
 };
 
-export { registerUser };
+const loginUser = async (req, res) => {};
+
+export { registerUser, loginUser };

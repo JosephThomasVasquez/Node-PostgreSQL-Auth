@@ -36,6 +36,7 @@ app.use(express.json()); // Body parser
 
 // ROUTES
 app.post("/users/register", registerUser);
+// app.post("/users/login", loginUser);
 
 const PORT = process.env.PORT;
 
