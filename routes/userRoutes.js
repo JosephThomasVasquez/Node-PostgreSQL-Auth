@@ -47,7 +47,7 @@ const registerUser = async (req, res) => {
       [email],
       (error, results) => {
         if (error) {
-            console.log("postgres error: ", error);
+          console.log("postgres error: ", error);
           throw error;
         }
         console.log("postgres results: ", results.rows);
@@ -65,7 +65,8 @@ const registerUser = async (req, res) => {
                 throw error;
               }
               console.log("postgres results: ", results.rows);
-            //   res.json();
+              //   res.json();
+              res.redirect("/users/login");
             }
           );
         }

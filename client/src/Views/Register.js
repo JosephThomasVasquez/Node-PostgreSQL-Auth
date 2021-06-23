@@ -31,6 +31,7 @@ const Register = () => {
     password: "",
     confirmPassword: "",
     errors: "",
+    success: "",
   });
 
   const handleRegisterInput = (e) => {
