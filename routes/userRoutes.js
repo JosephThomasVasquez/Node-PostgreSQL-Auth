@@ -50,7 +50,12 @@ const registerUser = async (req, res) => {
           console.log(error);
           throw error;
         }
-        console.log(results.rows);
+        console.log("postgres results: ", results.rows);
+
+        if (results.rows.length > 0) {
+          errors.push({ message: "Email already has been registered." });
+          res.json({ errors });
+        }
       }
     );
   }
