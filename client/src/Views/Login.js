@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "../components/NavBar";
+import ErrorMessage from "../components/ErrorMessage";
+import SuccessMessage from "../components/SuccessMessage";
 import Container from "@material-ui/core/Container";
 import { FormControl, Input, InputLabel, Button } from "@material-ui/core";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
@@ -23,6 +25,56 @@ const theme = createMuiTheme({
 });
 
 const Login = () => {
+  // Set State for register data
+  const [loginData, setLoginData] = useState({
+    email: "",
+    password: "",
+    errors: "",
+    success: "",
+  });
+
+  const handleLoginInput = (e) => {
+    // Destructure input by name and value
+    const { name, value } = e.target;
+
+    // Set state of registerData from input names and values
+    setLoginData({ ...loginData, [name]: value });
+    console.log("loginData", loginData);
+  };
+
+  // Submit register data
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    const setupData = {
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      method: "POST",
+      body: JSON.stringify({
+        email: loginData.email,
+        password: loginData.password,
+      }),
+    };
+
+    fetch("http://localhost:5000/users/login", setupData)
+      .then((response) => {
+        console.log(response);
+        return response.json();
+      })
+      .then((data) => {
+        setLoginData(data);
+        if (data.success) {
+          setLoginData({ ...data, success: data.success });
+        }
+        console.log("Data", loginData);
+      })
+      .catch((error) => {
+        console.log("Fetch Error", error);
+      });
+  };
+
   return (
     <>
       <NavBar />
@@ -30,7 +82,19 @@ const Login = () => {
         <Container variant="dark" maxWidth="sm">
           <h1>Login</h1>
 
-          <form action="/users/register" method="POST" className="form-bg">
+          <form
+            action="/users/register"
+            method="POST"
+            className="form-bg"
+            onSubmit={handleLogin}
+          >
+            {loginData.errors &&
+              loginData.errors.map((err) => (
+                <ErrorMessage key={err.message} message={err.message} />
+              ))}
+            {loginData.success && (
+              <SuccessMessage message={loginData.success} />
+            )}
             <FormControl className="form-control">
               <InputLabel className="input-labels">Email</InputLabel>
               <Input
