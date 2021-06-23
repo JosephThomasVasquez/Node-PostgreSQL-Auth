@@ -56,19 +56,20 @@ const registerUser = async (req, res) => {
           errors.push({ message: "Email already has been registered." });
           res.json({ errors });
         } else {
-          pool.query(
-            `INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING id, password`,
-            [name, email, hashedPassword],
-            (error, results) => {
-              if (error) {
-                console.log("postgres error: ", error);
-                throw error;
-              }
-              console.log("postgres results: ", results.rows);
-              //   res.json();
-              res.redirect("/users/login");
-            }
-          );
+          res.json({ success: "Registration successfully created." });
+          //   pool.query(
+          //     `INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING id, password`,
+          //     [name, email, hashedPassword],
+          //     (error, results) => {
+          //       if (error) {
+          //         console.log("postgres error: ", error);
+          //         throw error;
+          //       }
+          //       console.log("postgres results: ", results.rows);
+          //       res.json({ message: "Registration successfully created." });
+          //       res.redirect("/users/login");
+          //     }
+          //   );
         }
       }
     );
