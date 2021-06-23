@@ -60,7 +60,7 @@ function initialize() {
   });
 
   // Get user details from postgres database
-  passport.deserializeuser((id, done) => {
+  passport.deserializeUser((id, done) => {
     pool.query(`SELECT * FROM users WHERE id = $1`, [id], (error, results) => {
       if (error) {
         console.log("postgres error: ", error);

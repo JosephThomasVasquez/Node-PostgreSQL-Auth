@@ -1,8 +1,6 @@
 import express from "express";
 import bcrypt from "bcrypt";
 import pool from "../config/dbConfig.js";
-import passport from "passport";
-import { initialize } from "../config/passportConfig.js";
 
 express().use(express.json()); // Body parser
 

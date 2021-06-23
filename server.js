@@ -4,6 +4,10 @@ import cors from "cors";
 import session, { Session } from "express-session";
 import pool from "./config/dbConfig.js";
 import { registerUser } from "./routes/userRoutes.js";
+import passport from "passport";
+import { initialize } from "./config/passportConfig.js";
+
+initialize(passport);
 
 dotenv.config();
 
@@ -23,6 +27,9 @@ app.use(
     saveUninitialized: false,
   })
 );
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); // Body parser
