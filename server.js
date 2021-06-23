@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import session, { Session } from "express-session";
 import pool from "./config/dbConfig.js";
-import { registerUser } from "./routes/userRoutes.js";
+import { registerUser, loginUser } from "./routes/userRoutes.js";
 import passport from "passport";
 import { initialize } from "./config/passportConfig.js";
 
@@ -36,7 +36,7 @@ app.use(express.json()); // Body parser
 
 // ROUTES
 app.post("/users/register", registerUser);
-// app.post("/users/login", loginUser);
+app.post("/users/login", loginUser);
 
 const PORT = process.env.PORT;
 
