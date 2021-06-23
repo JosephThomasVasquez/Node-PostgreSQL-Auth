@@ -60,10 +60,11 @@ const Login = () => {
 
     fetch("http://localhost:5000/users/login", setupData)
       .then((response) => {
-        console.log(response);
+        console.log("response", response);
         return response.json();
       })
       .then((data) => {
+        console.log("loginData", data);
         setLoginData(data);
         if (data.success) {
           setLoginData({ ...data, success: data.success });
@@ -99,7 +100,9 @@ const Login = () => {
               <InputLabel className="input-labels">Email</InputLabel>
               <Input
                 id="input-email"
+                name="email"
                 aria-describedby="Enter your email address"
+                onChange={handleLoginInput}
               />
             </FormControl>
 
@@ -107,7 +110,9 @@ const Login = () => {
               <InputLabel className="input-labels">Password</InputLabel>
               <Input
                 id="input-password"
+                name="password"
                 aria-describedby="Please enter a strong password"
+                onChange={handleLoginInput}
               />
             </FormControl>
 

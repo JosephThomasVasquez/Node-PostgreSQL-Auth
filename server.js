@@ -36,14 +36,23 @@ app.use(express.json()); // Body parser
 
 // ROUTES
 app.post("/users/register", registerUser);
+
+app.get("/users/login", userAuthenticated, loginUser);
+
 app.post(
   "/users/login",
   passport.authenticate("local", {
     successRedirect: "/users/dashboard",
     failureRedirect: "/users/login",
-  }),
-  loginUser
+  })
 );
+
+function userAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return res.redirect("/users/dashboard");
+  }
+  next();
+}
 
 const PORT = process.env.PORT;
 

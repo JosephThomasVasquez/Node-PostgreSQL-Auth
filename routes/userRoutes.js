@@ -79,6 +79,33 @@ const registerUser = async (req, res) => {
   }
 };
 
-const loginUser = async (req, res) => {};
+const loginUser = async (req, res) => {
+  const { email, password } = req.body;
+
+  console.log("req.body", {
+    email,
+    password,
+  });
+
+  const errors = [];
+
+  // Check if user exists via email
+  await pool.query(
+    `SELECT * FROM users WHERE email = $1`,
+    [email],
+    (error, results) => {
+      if (error) {
+        console.log("postgres error: ", error);
+        throw error;
+      }
+      console.log("postgres results: ", results.rows);
+
+      if (results.rows.length > 0) {
+        // errors.push({ message: "Email already has been registered." });
+        res.json(results.rows[0]);
+      }
+    }
+  );
+};
 
 export { registerUser, loginUser };

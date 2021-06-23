@@ -3,7 +3,7 @@ import pool from "./dbConfig.js";
 import bcrypt from "bcrypt";
 import passport from "passport";
 
-function initialize() {
+function initialize(passport) {
   const authenticateUser = (email, password, done) => {
     // Send query to postgres database matching user email
     pool.query(
